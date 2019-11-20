@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ChangeDays : MonoBehaviour
 {
-private void Start() {
-    
-}
-private void Update() {
-    float cal = Mathf.PingPong(Time.time, 1);
+    [SerializeField] float speed;
+private void Start()
+    {
 
-}
+
+    }
+private void Update()
+    {
+        float val = Mathf.PingPong(speed*Time.time, 1);
+        GetComponent<Renderer>().material.SetFloat("_TexValue", val);
+    }
 }
